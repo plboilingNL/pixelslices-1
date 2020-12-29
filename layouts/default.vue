@@ -1,6 +1,6 @@
+/* eslint-disable vue/attribute-hyphenation */
 <template>
   <div>
-    <TheHeader :partials="partials" />
     <main class="mt-20 md:mt-24 xl:mt-24">
       <Nuxt />
     </main>
@@ -10,13 +10,8 @@
 
 <script>
 export default {
-  async middleware({ store }) {
-    await store.dispatch('loadPartials')
-  },
-  computed: {
-    partials() {
-      return this.$store.state.partials
-    },
+  async middleware({ store, $prismic }) {
+    await store.dispatch('fetchMenu', $prismic)
   },
 }
 </script>

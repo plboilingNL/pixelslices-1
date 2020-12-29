@@ -58,13 +58,13 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['flag-icon-css/css/flag-icon.min.css'],
 
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: [{ src: '~/plugins/prismicLinks', ssr: false }],
 
   /*
    ** Auto import components
@@ -93,12 +93,16 @@ export default {
     [
       '@nuxtjs/prismic',
       {
-        endpoint: 'https://pixelslices.cdn.prismic.io/api/v2',
+        endpoint: 'https://pixelslices-2020.cdn.prismic.io/api/v2',
         apiOptions: {
           routes: [
             {
               type: 'page',
-              path: '/:uid',
+              path: '/:lang/:uid',
+            },
+            {
+              type: 'homepage',
+              path: '/:lang/',
             },
           ],
         },

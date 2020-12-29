@@ -1,13 +1,4 @@
-<template>
-  <slice-zone type="page" uid="home" />
-</template>
-
 <script>
-import SliceZone from 'vue-slicezone'
-
-export default {
-  components: {
-    SliceZone,
-  },
-}
+import Index from '~/pages/_lang/index'
+export default Index
 </script>

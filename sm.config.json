@@ -1,0 +1,6 @@
+{
+  "libraryName": "Name of your Lib",
+  "framework": "nuxt|next",
+  "gitUrl": "...",
+  "pathToLibrary": "src"
+ }
