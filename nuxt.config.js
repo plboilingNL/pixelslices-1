@@ -98,10 +98,6 @@ export default {
           type: 'page',
           path: '/:lang/:uid',
         },
-        {
-          type: 'homepage',
-          path: '/:lang',
-        },
       ],
     },
     disableGenerator: false,
