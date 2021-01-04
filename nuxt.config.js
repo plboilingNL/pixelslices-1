@@ -89,33 +89,32 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    [
-      '@nuxtjs/prismic',
-      {
-        endpoint: 'https://pixelslices-2020.cdn.prismic.io/api/v2',
-        apiOptions: {
-          routes: [
-            {
-              type: 'page',
-              path: '/:lang/:uid',
-            },
-            {
-              type: 'homepage',
-              path: '/:lang/',
-            },
-          ],
+  modules: [['@nuxtjs/prismic'], ['nuxt-sm']],
+  prismic: {
+    endpoint: 'https://pixelslices-2020.cdn.prismic.io/api/v2',
+    apiOptions: {
+      routes: [
+        {
+          type: 'page',
+          path: '/:lang/:uid',
         },
-      },
-    ],
-    ['nuxt-sm'],
-  ],
+        {
+          type: 'homepage',
+          path: '/:lang',
+        },
+      ],
+    },
+    disableGenerator: false,
+  },
 
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {
+    extend(config, ctx) {
+      config.resolve.alias.vue = 'vue/dist/vue.common'
+    },
     transpile: ['vue-slicezone', 'nuxt-sm'],
   },
 
@@ -143,5 +142,8 @@ export default {
       theme_color: '#2c3136',
       description: 'A neat slice library for Slicemachine by Prismic.',
     },
+  },
+  generate: {
+    fallback: '404.html',
   },
 }
